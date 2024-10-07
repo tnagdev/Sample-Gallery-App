@@ -34,12 +34,10 @@ const PhotosPage = () => {
     }
 
     return <>
-        {searchData.results.length ? <div
-            className='sticky top-0 gap-2 w-full flex justify-center mb-2 p-2 rounded-md overflow-hidden'
-        >
+        {searchData.results.length ? <div className='sticky top-0 gap-2 w-full flex justify-center mb-2 p-2 rounded-md overflow-hidden'>
             <div className='w-full bg-cover bg-center absolute inset-0 z-0 blur-sm opacity-50' style={{ backgroundImage: `url("${searchData.results?.[selected]?.src.small}")` }}></div>
-            <img 
-                className="h-[20vw] z-10 rounded-md" 
+            <img
+                className="h-[20vw] z-10 rounded-md"
                 src={searchData.results?.[selected]?.src.original}
             />
             <div className="flex-1 z-10 rounded-md flex flex-col p-4 justify-between" style={{ backgroundColor: searchData.results?.[selected]?.avg_color + 'bb' }}>
@@ -56,7 +54,8 @@ const PhotosPage = () => {
             <div className='columns-[200px] gap-2'>
                 {searchData?.results?.length ? searchData.results.map((item, i) => <Card selected={selected == i} onClick={() => setSelected(i)} className={`mb-2 rounded-md overflow-hidden`} key={item.id} imgUrl={item.src.medium} />) : null}
             </div>
-        </InfiniteScroller></>
+        </InfiniteScroller>
+    </>
 }
 
 export default PhotosPage;
